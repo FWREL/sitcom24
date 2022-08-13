@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin-inline: auto;
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        width: 80%;
+        margin-inline: auto;
+    }
+}
+
+.navbar {
+    padding: 5px 0 5px 0;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    background-color: #bdfc99;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* ini ngasih shadown di bagian bawah navbar */
+}
+ 
+.navbar .box-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .box-navbar .logo h1 {
+    font-size: 40px;  
+    color: #303030;
+}
+
+.navbar .box-navbar .nav ul{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar .box-navbar .nav ul li{
+    list-style-type: none; /* fungsinya ilangin titik dot, yang ada di navigasi */
+
+    /* 1. kasih liat preview, sekarang kita bakal kasih dikit animasi zoom in teks navbar (home dkk) nya */
+
+    /* 4. kita bakal tambahin */
+    transition: all 0.2 ease;
+}
+
+.navbar .box-navbar .nav ul li:hover {
+
+    /* 2. buat bikin zoom in nya code nya ini yaa */
+    transform: scale(1.1);
+    /* 3. kasih liat preview, nah udah bisa nih nge zoom in tapi kayak kurang smooth kita tambahin deh di tag yang atas bukan bagian hover */
+}
+
+.navbar .box-navbar .nav ul li:hover a{
+    color: #82d989;
+}
+
+.navbar .box-navbar .nav ul li:nth-child(4) a { 
+    
+    /* nth-child ini secara simpelnya, itu fungsinya buat kasih tujuan yang lebih jelas variabel mana, jika dalam satu tag punya lebih dari satu objek, contoh di grup nav ada 4 paragraf tapi kita cuman pengen edit paragraf 2 jadi masukkin variabel 2 */
+
+    padding: 10px 30px 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: #82d989;
+
+    /* kamu cobain kalo nth-child(5) pasti gaada, karna di navbar cuman ada 4 kategori home, article, gallery, contact, ga sampai 5 */
+}
+
+.navbar .box-navbar .nav ul li a{
+    text-decoration: none; /* sebelum masukkin ini kasih liat dulu, tulisan home dan lainnya kan warna biru, nah fungsi tag text-decoration ini biar tulisannya tuh ga kaya link */
+    color: black; /* kita kasih warna text nya */
+}
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.home .box-home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    align-items: center;
+}
+
+.home .box-home .box:nth-child(1) h1{
+    font-size: 56px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #303030;
+}
+
+.home .box-home .box:nth-child(1) p {
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.home .box-home .box:nth-child(1) button {
+    padding: 15px 50px 15px 50px;
+    font-weight: bold; /* mengubah font jadi bold */
+    border: none; /* ngilangin pinggiran stroke bordernya, kasih liat kalo ini gaada */
+    font-size: 16px; /* mengubah ukuran font */
+    border-radius: 10px; /* untuk mengatur lengkungan pada border */
+    cursor: pointer;
+    
+    /* kasih liat before after sebelum dikasih transisi, ini gunanya buat ngasih transisi biar ga terlalu patah perbedaannya */
+    transition: all 0.2s ease;
+}
+
+.home .box-home .box:nth-child(1) .btn-home {
+    color: #303030;
+}
+
+.home .box-home .box:nth-child(1) .btn-home:hover {
+    background-color: #82d989;
+    color: white;
+}
+
+.home .box-home .box:nth-child(2) img {
+    width: 100%;
+}
+
+.article {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.article .box-article {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    align-items: center;
+}
+
+.article .box-article .box:nth-child(1) {
+    display: grid;
+    grid-template-areas: 
+    "image1 image2"
+    "image3 image4";
+}
+
+.article .box-article .box:nth-child(1) .image1{
+    grid-area: image1;  
+}
+
+.article .box-article .box:nth-child(1) .image2{
+    grid-area: image2;  
+}
+
+.article .box-article .box:nth-child(1) .image3{
+    grid-area: image3;  
+}
+
+.article .box-article .box:nth-child(1) .image4{
+    grid-area: image4;  
+}
+
+.article .box-article .box:nth-child(1) img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.article .box-article .box:nth-child(2) h1 {
+    font-size: 40px;
+    color: #303030;
+    margin-bottom: 10px;
+}
+
+.article .box-article .box:nth-child(2) p{
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.article .box-article .box:nth-child(2) button {
+    padding: 15px 40px 15px 40px;
+    background-color: #82d989;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.article .box-article .box:nth-child(2) button:hover {
+    background-color: #204e84;
+    color: white;
+}
+
+.gallery {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.gallery .box-gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 50px;
+}
+
+.gallery .box-gallery .box:nth-child(1) {
+    text-align: center;
+    width: 50%;
+    margin-inline: auto;
+}
+
+.gallery .box-gallery .box:nth-child(1) h1 {
+    color: #303030;
+}
+
+.gallery .box-gallery .box:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 1 foto = 60px, jadi minmax yang saya pake 300px karna saya pake 6 foto */
+    gap: 10px; /* memberi jarak pada tiap gambar */
+}
+
+.gallery .box-gallery .box:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+}
+
+.contact {
+    width: 100%;
+    min-height: 100vh;
+}
