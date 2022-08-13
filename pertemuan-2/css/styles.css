@@ -1,38 +1,45 @@
+/* sekarang kita bakal coba ngasih style font di web kita yang udah dibuat, nah buat ganti font ini sebenernya ada 2 cara yaitu kita bisa pake offline font yang artinya kita download dulu fontnya atau bisa juga pake online font yang lebih gampang
+caranya : 
+- caranya buka fonts.google.com
+- cari font yang kalian mau
+- klik tanda plus disebelah kanan judul font
+- nanti bakal muncul option dikanan
+- kita pilih yang @import
+- trus select dari @import sampai ; (titik koma)
+- paste di file css
+
+*jadinya kayak yang dibawah ini
+*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* biar lebih smooth kalo pencet navigasi yang bakal kita buat, biar ga loncat kasar *contohnya pencet home tapi kalo navbar udah beres */
     font-family: "Poppins", sans-serif;
 }
 
 .container {
     width: 90%;
-    margin-inline: auto;
+    margin-inline: auto; /* buat ngatur jarak html */
 }
 
-@media screen and (min-width: 900px) {
-    .container {
-        width: 80%;
-        margin-inline: auto;
-    }
-}
+/* START NAVBAR SECTION */
 
 .navbar {
     padding: 5px 0 5px 0;
-    position: fixed;
-    z-index: 9999;
+    position: fixed; /* fixed disini fungsinya buat bikin objectnya itu ngambang/nempel, disini bakal keliatan kalo navbar udah jadi bakal nempel di atas layar walaupun di scroll */
+    z-index: 9999; /* buat ngatur posisi depan atau belakang suatu element, contohnya di navbar kita mau posisinya paling depan, jadi kasih variabel angka banyak */
     width: 100%;
     background-color: #bdfc99;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* ini ngasih shadown di bagian bawah navbar */
+    box-shadow: 0 5px 5px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* ini ngasih shadow di bagian bawah navbar, warna nya hitam */
 }
  
 .navbar .box-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;  /* ini ngubah yang awalnya list navbar-nya ke bawah jadi list ke samping */
+    justify-content: space-between; /* sama kayak namanya, space-between ini gunanya buat ngasih jarak antar item (teks) yang kita kasih */
+    align-items: center; /* ini fungsinya mirip sama justify-content, cuman isinya beda yaitu center, bikin tengah si element */
 }
 
 .navbar .box-navbar .logo h1 {
@@ -43,7 +50,7 @@
 .navbar .box-navbar .nav ul{
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 40px; /* buat ngatur antar kolom maupun baris di suatu element *cobain aja kalo kasih variabel 20px keliatan perbedaan di home dkk* */
 }
 
 .navbar .box-navbar .nav ul li{
@@ -70,12 +77,12 @@
     
     /* nth-child ini secara simpelnya, itu fungsinya buat kasih tujuan yang lebih jelas variabel mana, jika dalam satu tag punya lebih dari satu objek, contoh di grup nav ada 4 paragraf tapi kita cuman pengen edit paragraf 2 jadi masukkin variabel 2 */
 
-    padding: 10px 30px 10px 30px;
-    border: none;
+    padding: 10px 30px 10px 30px; /* panjang x lebar nya box */
+    border: none; 
     border-radius: 10px;
-    font-weight: bold;
-    color: white;
-    background-color: #82d989;
+    font-weight: bold; /* fungsinya bikin element teks yang kita buat jadi bold */
+    color: white; /* warna font */
+    background-color: #82d989; 
 
     /* kamu cobain kalo nth-child(5) pasti gaada, karna di navbar cuman ada 4 kategori home, article, gallery, contact, ga sampai 5 */
 }
@@ -85,23 +92,28 @@
     color: black; /* kita kasih warna text nya */
 }
 
+/* END NAVBAR SECTION */
+
+/* START HOME SECTION */
+
 .home {
     width: 100%;
     min-height: 100vh;
-    display: grid;
-    place-items: center;
+    /* width sama min-height 100 ini, gunanya buat bikin page yang bakal kita buat jadi fullscreen satu layar, jadi konten selanjutnya ga keliatan ke page utama */
+    display: grid; /* membagi kolom pada website menjadi beberapa bagian sesuai yang diinginkan, baik secara horizontal maupun vertikal */
+    place-items: center; /* fungsinya buat element jadi ditengah juga */
 }
 
 .home .box-home {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
+    grid-template-columns: repeat(2, 1fr); /* menentukan ukuran kolom dengan satuan fr, dan di repeat atau di ulang ulang ukurannya */
+    column-gap: 40px; /* untuk menentukan jarak antar kolom */
     align-items: center;
 }
 
 .home .box-home .box:nth-child(1) h1{
     font-size: 56px;
-    line-height: 1.2;
+    line-height: 1.2; /* menentukan jarak antar baris */
     margin-bottom: 20px;
     color: #303030;
 }
@@ -136,6 +148,10 @@
     width: 100%;
 }
 
+/* END START SECTION */
+
+/* START ARTICLE SECTION */
+
 .article {
     width: 100%;
     min-height: 100vh;
@@ -152,25 +168,13 @@
 
 .article .box-article .box:nth-child(1) {
     display: grid;
+    
+    /* di grid itu satu baris punya 3 kotak horizontal, jadi disini kita bakal nampilin foto berdasarkan class yang ada di tiap gambar article. pake fungsi ini */
     grid-template-areas: 
+    /* ini baris pertama gambar yang bakal saya munculin 2 foto ke kanan, sesuai-in nama class di element gambar article */
     "image1 image2"
+    /* ini buat foto baris kedua, dan foto yang dimunculin 2 foto ke kanan, sesuai-in nama class di element gambar article */
     "image3 image4";
-}
-
-.article .box-article .box:nth-child(1) .image1{
-    grid-area: image1;  
-}
-
-.article .box-article .box:nth-child(1) .image2{
-    grid-area: image2;  
-}
-
-.article .box-article .box:nth-child(1) .image3{
-    grid-area: image3;  
-}
-
-.article .box-article .box:nth-child(1) .image4{
-    grid-area: image4;  
 }
 
 .article .box-article .box:nth-child(1) img {
@@ -197,14 +201,18 @@
     color: white;
     font-weight: bold;
     border-radius: 10px;
-    transition: all 0.2s ease;
-    cursor: pointer;
+    transition: all 0.2s ease; /* transisi fade, selamat 0.2 detik dan ease artinya transisi dari lambat ke cepat */
+    cursor: pointer; /* ini bikin cursor jadi nunjuk, jadi kalo cursor kita arahin ke suatu element maka cursor nya berubah jadi bentuk nunjuk (kayak mau klik) */
 }
 
 .article .box-article .box:nth-child(2) button:hover {
     background-color: #204e84;
     color: white;
 }
+
+/* END ARTICLE SECTION */
+
+/* START GALLERY SECTION */
 
 .gallery {
     width: 100%;
@@ -215,9 +223,9 @@
 
 .gallery .box-gallery {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, auto);
-    row-gap: 50px;
+    grid-template-columns: repeat(1, 1fr); /* berfungsi untuk mengatur ukuran kolom disini jumlahnya 1, dan jika ada lebih dari element yang ditentukan akan membuat kolom baru */
+    grid-template-rows: repeat(2, auto); /* berfungsi untuk mengatur baris disini jumlahnya 2 dan jika melebihi yang ditentukan akan otomatis membuat baris baru */
+    row-gap: 50px; /* mengatur jarak antar baris */
 }
 
 .gallery .box-gallery .box:nth-child(1) {
@@ -241,7 +249,14 @@
     height: 100%;
 }
 
+/* END GALLERY SECTION */
+
+/* START CONTACT SECTION */
+
 .contact {
     width: 100%;
     min-height: 100vh;
 }
+
+
+/* END GALLERY SECTION */
