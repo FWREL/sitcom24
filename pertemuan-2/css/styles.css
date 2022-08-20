@@ -277,7 +277,7 @@ caranya :
 .contact .box-contact .box:nth-child(1) p {
     font-style: italic;
     color: red;
-    opacity: 0.7;
+    opacity: 0.7; /* untuk mengatur opacity element */
 }
 
 .contact .box-contact .box:nth-child(2) input, textarea {
